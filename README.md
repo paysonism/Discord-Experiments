@@ -14,5 +14,6 @@ If you need any help, join the [discord server](https://dsc.gg/PDennSploit) and 
 # Credits
 
 Made By [Payson Holmes](https://github.com/P-DennyGamingYT/)
+Deobfuscated by [Reycko](https://github.com/Reycko)
 
 Copyright &copy; 2023 - PDennSploit Softworks
