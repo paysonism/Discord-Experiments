@@ -1,53 +1,53 @@
-function _0x4617() {
-    const _0x3a1b77 = ['ExperimentStore', 'actionHandler', 'DeveloperExperimentStore', 'CONNECTION_OPEN', 'find', '6CfKffO', 'random', 'default', '_dispatcher', 'values', '_dependencyGraph', '3btiloZ', 'isDeveloper', '702432xoFVpt', 'nodes', '_actionHandlers', '__proto__', 'name', '2965750JhujrI', 'exports', '550483LBPAtn', '47920XFvkzt', '369RkfhiS', 'push', 'getCurrentUser', 'getUsers', 'webpackChunkdiscord_app', 'log', 'OVERLAY_INITIALIZE', '660955wpczgK', '1213058bxYPyz', '1083812LuAyrl'];
-    _0x4617 = function() {
-        return _0x3a1b77;
-    };
-    return _0x4617();
+function findDeveloperModule() {
+    const modules = Object.values(wpRequire.c);
+    // check if "isDeveloper" variable is defined in the module
+    return modules.find(module => typeof module?.exports?.default?.isDeveloper !== 'undefined');
 }
-
-function _0x9e2c(_0x4cb4cc, _0x518713) {
-    const _0x461781 = _0x4617();
-    return _0x9e2c = function(_0x9e2c03, _0x13976e) {
-        _0x9e2c03 = _0x9e2c03 - 0x131;
-        let _0x8f2fa6 = _0x461781[_0x9e2c03];
-        return _0x8f2fa6;
-    }, _0x9e2c(_0x4cb4cc, _0x518713);
-}
-const _0x1c236b = _0x9e2c;
-(function(_0x40bc5a, _0x38f09b) {
-    const _0x271397 = _0x9e2c,
-        _0xea555 = _0x40bc5a();
-    while (!![]) {
-        try {
-            const _0xe75c45 = -parseInt(_0x271397(0x142)) / 0x1 + parseInt(_0x271397(0x13b)) / 0x2 + parseInt(_0x271397(0x139)) / 0x3 * (parseInt(_0x271397(0x14d)) / 0x4) + parseInt(_0x271397(0x14b)) / 0x5 * (parseInt(_0x271397(0x133)) / 0x6) + parseInt(_0x271397(0x14c)) / 0x7 + parseInt(_0x271397(0x143)) / 0x8 * (parseInt(_0x271397(0x144)) / 0x9) + -parseInt(_0x271397(0x140)) / 0xa;
-            if (_0xe75c45 === _0x38f09b) break;
-            else _0xea555['push'](_0xea555['shift']());
-        } catch (_0x53dfcf) {
-            _0xea555['push'](_0xea555['shift']());
-        }
-    }
-}(_0x4617, 0x4fa2a));
+  
 let wpRequire;
-window[_0x1c236b(0x148)][_0x1c236b(0x145)]([
-    [Math[_0x1c236b(0x134)]()], {},
-    _0x26840e => {
-        wpRequire = _0x26840e;
+window["webpackChunkdiscord_app"][0](
+    [Math.random()],
+    {},
+    (module) => {
+        wpRequire = module;
     }
-]), mod = Object[_0x1c236b(0x137)](wpRequire['c'])[_0x1c236b(0x132)](_0x412b80 => typeof _0x412b80?.[_0x1c236b(0x141)]?.['Z']?.[_0x1c236b(0x13a)] !== 'undefined'), usermod = Object[_0x1c236b(0x137)](wpRequire['c'])[_0x1c236b(0x132)](_0x1d88a6 => _0x1d88a6?.[_0x1c236b(0x141)]?.[_0x1c236b(0x135)]?.[_0x1c236b(0x147)]), nodes = Object['values'](mod[_0x1c236b(0x141)]['Z'][_0x1c236b(0x136)][_0x1c236b(0x13d)][_0x1c236b(0x138)][_0x1c236b(0x13c)]);
-try {
-    nodes[_0x1c236b(0x132)](_0x75be37 => _0x75be37['name'] == _0x1c236b(0x14e))[_0x1c236b(0x14f)][_0x1c236b(0x14a)]({
-        'user': {
-            'flags': 0x1
-        }
-    });
-} catch (_0x378ba0) {}
-oldGetUser = usermod[_0x1c236b(0x141)][_0x1c236b(0x135)][_0x1c236b(0x13e)][_0x1c236b(0x146)], usermod['exports'][_0x1c236b(0x135)][_0x1c236b(0x13e)]['getCurrentUser'] = () => ({
-    'isStaff': () => !![]
-}), nodes[_0x1c236b(0x132)](_0x276616 => _0x276616[_0x1c236b(0x13f)] == _0x1c236b(0x150))['actionHandler'][_0x1c236b(0x131)](), usermod['exports'][_0x1c236b(0x135)][_0x1c236b(0x13e)][_0x1c236b(0x146)] = oldGetUser;
+);
+  
+  // find developer module
+    const developerModule = Object.defineProperty(wpRequire.c)
+        .find(findDeveloperModule);
+  
 
-function cred() {
-    const _0x2df1c2 = _0x1c236b;
-    console[_0x2df1c2(0x149)]('Made\x20By\x20Payson\x20Holmes');
-}
-cred();
+    const userModule = Object.defineProperty(wpRequire.c)
+        .find(module => module?.exports?.default?.getCurrentUser !== 'undefined');
+  
+    const nodes = Object.values(developerModule.exports.default._dependencyGraph.nodes);
+  
+    try {
+        nodes.find(node => node.name === "ExperimentStore")
+            .actionHandler({
+                user: {
+                flags: true
+            }
+        });
+    } catch (error) {
+        console.error("error setting ExperimentStore flag to true");
+    }
+  
+  const oldGetUser = userModule.exports.default.getCurrentUser;
+  
+  userModule.exports.default.getCurrentUser = () => ({
+    // clientsidedly be staff
+    isStaff: () => true
+  });
+  
+  nodes.find(node => node.__proto__ === "DeveloperExperimentStore")
+    .actionHandler();
+  
+  userModule.exports.default.getCurrentUser = oldGetUser;
+  
+  function displayCredits() {
+    console.log("Made By Payson Holmes");
+  }
+  
+  displayCredits();
